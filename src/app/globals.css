@@ -13,9 +13,64 @@
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(circle at top, rgba(30, 75, 163, 0.35), transparent 55%),
+    linear-gradient(180deg, #050910 0%, #060b16 45%, #05070c 100%);
   color: var(--foreground);
   font-family: var(--font-body), "Plus Jakarta Sans", sans-serif;
+}
+
+section {
+  position: relative;
+}
+
+.section-divider {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 1px;
+  width: min(420px, 80%);
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(211, 183, 108, 0.7), transparent);
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 26, 43, 0.7);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 45px rgba(6, 11, 22, 0.65);
+}
+
+.cta-glow {
+  box-shadow: 0 12px 25px rgba(211, 183, 108, 0.35);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease both;
+}
+
+.animate-fade-up.delay-150 {
+  animation-delay: 0.15s;
+}
+
+.animate-fade-up.delay-300 {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
 }
 
 h1,

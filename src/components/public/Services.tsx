@@ -29,11 +29,11 @@ export default function Services() {
             Solucoes completas para seu smartphone
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible [scrollbar-width:none] [-ms-overflow-style:none]">
           {services.map((service) => (
             <div
               key={service.title}
-              className="rounded-2xl border border-white/10 bg-[#0f1a2b] p-6"
+              className="glass-card min-w-[220px] snap-start rounded-2xl p-6 md:min-w-0"
             >
               <h3 className="text-xl font-semibold">{service.title}</h3>
               <p className="mt-3 text-sm text-[#c9d3e0]">{service.desc}</p>
@@ -41,6 +41,7 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <span className="section-divider" />
     </section>
   );
 }

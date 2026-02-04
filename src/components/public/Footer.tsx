@@ -14,7 +14,7 @@ export default function Footer() {
             WhatsApp: (83) 991221-731
           </a>
         </div>
-        <div className="flex gap-6 text-sm text-[#c9d3e0]">
+        <div className="flex flex-wrap gap-6 text-sm text-[#c9d3e0]">
           <a href="https://www.instagram.com/royalecell_/" target="_blank" rel="noreferrer">
             Instagram
           </a>

@@ -32,29 +32,32 @@ export default function AppointmentForm() {
 
   return (
     <section id="agendamento" className="px-6 py-16">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.2fr_1fr]">
-        <div className="space-y-5">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.15fr_1fr]">
+        <div className="space-y-5 animate-fade-up">
           <p className="text-sm uppercase tracking-[0.3em] text-[#d3b76c]">
             Agendamento
           </p>
           <h2 className="text-3xl font-semibold md:text-4xl">
             Reserve seu atendimento em minutos
           </h2>
-          <p className="text-[#c9d3e0]">
+          <p className="text-sm text-[#c9d3e0] sm:text-base">
             Preencha o formulario e nossa equipe confirma tudo por WhatsApp.
           </p>
-          <div className="rounded-2xl border border-white/10 bg-[#0f1a2b] p-6">
+          <div className="glass-card rounded-2xl p-6">
             <p className="text-sm text-[#c9d3e0]">
               Tempo medio de resposta: menos de 10 minutos em horario comercial.
             </p>
           </div>
         </div>
         <form
-          className="space-y-4 rounded-2xl border border-white/10 bg-white p-6 text-[#060b16] shadow-lg"
+          className="animate-fade-up delay-150 space-y-4 rounded-3xl border border-white/10 bg-[#0b1220] p-6 text-white shadow-[0_25px_60px_rgba(5,10,20,0.55)]"
           onSubmit={handleSubmit}
         >
+          <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs uppercase tracking-[0.35em] text-[#c9d3e0]">
+            Informacoes do atendimento
+          </div>
           <input
-            className="w-full rounded border border-gray-200 p-3 text-sm"
+            className="w-full rounded-2xl border border-white/10 bg-[#0f1a2b] p-3 text-sm text-white placeholder:text-[#9aa3b2] focus:border-[#d3b76c] focus:outline-none"
             placeholder="Nome"
             name="nome"
             value={form.nome}
@@ -62,7 +65,7 @@ export default function AppointmentForm() {
             required
           />
           <input
-            className="w-full rounded border border-gray-200 p-3 text-sm"
+            className="w-full rounded-2xl border border-white/10 bg-[#0f1a2b] p-3 text-sm text-white placeholder:text-[#9aa3b2] focus:border-[#d3b76c] focus:outline-none"
             placeholder="Modelo do celular"
             name="modelo"
             value={form.modelo}
@@ -70,7 +73,7 @@ export default function AppointmentForm() {
             required
           />
           <input
-            className="w-full rounded border border-gray-200 p-3 text-sm"
+            className="w-full rounded-2xl border border-white/10 bg-[#0f1a2b] p-3 text-sm text-white placeholder:text-[#9aa3b2] focus:border-[#d3b76c] focus:outline-none"
             placeholder="Defeito"
             name="defeito"
             value={form.defeito}
@@ -79,7 +82,7 @@ export default function AppointmentForm() {
           />
           <input
             type="date"
-            className="w-full rounded border border-gray-200 p-3 text-sm"
+            className="w-full rounded-2xl border border-white/10 bg-[#0f1a2b] p-3 text-sm text-white placeholder:text-[#9aa3b2] focus:border-[#d3b76c] focus:outline-none"
             name="data_preferida"
             value={form.data_preferida}
             onChange={handleChange("data_preferida")}
@@ -87,24 +90,21 @@ export default function AppointmentForm() {
           />
           <button
             type="submit"
-            className="w-full rounded-full bg-[#143c7d] py-3 text-sm font-semibold text-white transition hover:bg-[#1e4ba3]"
+            className="cta-glow w-full rounded-full bg-[#d3b76c] py-3 text-sm font-semibold text-[#060b16] transition hover:brightness-110"
             disabled={status === "loading"}
           >
             {status === "loading" ? "Enviando..." : "Enviar agendamento"}
           </button>
-          <a
-            href="https://wa.me/5583991221731"
-            className="flex w-full items-center justify-center rounded-full border border-[#143c7d] py-3 text-sm font-semibold text-[#143c7d]"
-          >
-            Falar direto no WhatsApp
-          </a>
+          <p className="text-xs text-[#9aa3b2]">
+            Clique em enviar para abrir o WhatsApp com a mensagem pronta.
+          </p>
           {status === "success" && (
-            <p className="text-xs text-emerald-600">
+            <p className="text-xs text-emerald-300">
               Agendamento enviado. Vamos falar com voce em instantes.
             </p>
           )}
           {status === "error" && (
-            <p className="text-xs text-red-600">
+            <p className="text-xs text-red-300">
               Nao foi possivel enviar. Tente novamente.
             </p>
           )}
@@ -113,6 +113,7 @@ export default function AppointmentForm() {
           </p>
         </form>
       </div>
+      <span className="section-divider" />
     </section>
   );
 }
